@@ -2,9 +2,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @font-face {
-    font-family: Pacifico-Regular;
-    src: url(assets/fonts/Pacifico-Regular.ttf) format('truetype');
+    font-family: PressStart;
+    src: url(assets/fonts/PressStart2P-Regular.ttf) format('truetype');
 }
-.Pacifico-Regular {
-    font-family: Pacifico-Regular;
+.PressStart {
+    font-family: PressStart;
+}
+body{
+    font-family: PressStart;
 }
