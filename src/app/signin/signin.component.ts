@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faUser, faKey, faMailBulk, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-signin',
@@ -10,12 +11,17 @@ export class SigninComponent implements OnInit {
   description!: string;
   createdDate!: Date;
   snaps!: number;
+  faUser = faUser;
+  faKey = faKey;
+  faMailBulk = faMailBulk;
+  faCheck = faCheck
 
   ngOnInit(){
     this.title = 'Welcome';
     this.description = 'Mon meilleur ami depuis tout petit !';
     this.createdDate = new Date();
     this.snaps = 6;
+    
   }
 
 }
