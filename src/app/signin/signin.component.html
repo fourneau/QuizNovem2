@@ -11,32 +11,32 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="signinForm" (ngSubmit)="signin()">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><fa-icon [icon]="faUser"></fa-icon></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username">
+                            <input type="text" class="form-control" formControlName="username" placeholder="UserName">
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><fa-icon [icon]="faMailBulk"></fa-icon></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" formControlName="mail" placeholder="Email">
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><fa-icon [icon]="faKey"></fa-icon></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Create Password">
+                            <input type="password" class="form-control" formControlName="createPassword" placeholder="Create Password">
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><fa-icon [icon]="faCheck"></fa-icon></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Confirm Password">
+                            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me

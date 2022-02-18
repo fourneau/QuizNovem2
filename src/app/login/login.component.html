@@ -11,19 +11,19 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><fa-icon [icon]="faUser"></fa-icon></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username">
+                            <input type="text" class="form-control" formControlName="username" placeholder="UserName">
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><fa-icon [icon]="faKey"></fa-icon></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password">
+                            <input type="password" class="form-control" formControlName="password" placeholder="PassWord">
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
@@ -32,6 +32,7 @@
                             <input type="submit" value="Login" class="btn float-right login_btn">
                         </div>
                     </form>
+                    
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
