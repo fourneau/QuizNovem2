@@ -31,9 +31,7 @@ constructor(private fb: FormBuilder) {}
     });
     
   }
-  // signin() {
-  //   console.log('Données du formulaire', this.signinForm.value)
-  // }
+  
 
 get f() { return this.signinForm.controls; }
 
