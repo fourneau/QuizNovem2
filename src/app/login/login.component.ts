@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormGroup, Validator } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../_helpers/must-match.validator';
 @Component({
   selector: 'app-login',
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
     
     this.loginForm = this.fb.group({
-      username: ['', ],
-      password: [],
+      username: ['',Validators.required],
+      password: ['',[Validators.required,Validators.minLength(6)]],
     });
   }
   login() {
