@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validator } from '@angular/forms';
+import { MustMatch } from '../_helpers/must-match.validator';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  title!: string;
-  description!: string;
-  createdDate!: Date;
-  snaps!: number;
+ 
+  faUser = faUser;
+  faKey = faKey;
+  loginForm!: FormGroup;
   
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(){
-    this.title = 'Welcome';
-    this.description = 'Mon meilleur ami depuis tout petit !';
-    this.createdDate = new Date();
-    this.snaps = 6;
+    
+    this.loginForm = this.fb.group({
+      username: ['', ],
+      password: [],
+    });
+  }
+  login() {
+    console.log('Données du formulaire', this.loginForm.value)
   }
 
 }
