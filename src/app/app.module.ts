@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     WelcomeComponent,
     AboutComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
