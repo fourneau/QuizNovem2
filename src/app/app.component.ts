@@ -13,7 +13,7 @@ import './_content/app.less';
 export class AppComponent {
   title = 'QuizNovem';
   faUser = faUser;
-  currentUser: User = new User;
+  currentUser!: User;
 
   constructor(
     private router: Router,

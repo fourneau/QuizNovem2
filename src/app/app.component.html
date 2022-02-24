@@ -16,7 +16,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">QuizNovem?</a>
       <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,10 +37,15 @@
               <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <fa-icon [icon]="faUser"></fa-icon>
              </a>
-              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown" *ngIf="!currentUser">
                 <li><a class="dropdown-item" routerLink="/login">Login</a></li>
-                <li><a class="dropdown-item" routerLink="/signin">SignIn</a></li>
+                <li><a class="dropdown-item" routerLink="/register">SignIn</a></li>
                 
+              </ul>
+              
+                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown" *ngIf="currentUser">
+                  <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                  
               </ul>
             </li>
           </ul>

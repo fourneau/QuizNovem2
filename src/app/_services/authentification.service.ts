@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from '../_models/user';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -11,7 +12,14 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUserSubject = new BehaviorSubject<User>( {
+            id: 0,
+            username: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            token : ""
+        });
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -32,6 +40,13 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+        this.currentUserSubject.next({
+            id: 0,
+            username: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            token : ""
+        });
     }
 }
