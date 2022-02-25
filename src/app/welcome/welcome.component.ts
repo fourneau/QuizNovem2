@@ -10,6 +10,7 @@ export class WelcomeComponent implements OnInit {
   description!: string;
   createdDate!: Date;
   snaps!: number;
+  
  
   ngOnInit() {
     this.title = 'Welcome';
