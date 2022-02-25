@@ -8,18 +8,11 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<User>;
+    private currentUserSubject: BehaviorSubject<any>;
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>( {
-            id: 0,
-            username: "",
-            password: "",
-            firstName: "",
-            lastName: "",
-            token : ""
-        });
+        this.currentUserSubject = new BehaviorSubject<any>(null);
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -27,9 +20,9 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(username: any, password: any) {
-        return this.http.post<any>(`${config.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
+    login(username: string, password: string) {
+        return this.http.post<any>(`/users/authenticate`, { username, password })            
+        .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
@@ -40,13 +33,6 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
-        this.currentUserSubject.next({
-            id: 0,
-            username: "",
-            password: "",
-            firstName: "",
-            lastName: "",
-            token : ""
-        });
+        this.currentUserSubject.next(null);
     }
 }

@@ -10,12 +10,12 @@ import { AuthGuard } from './_helpers/auth.guard';
 
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent},
+  { path: '', component: WelcomeComponent},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'signin', component: SigninComponent },
 
   // otherwise redirect to home
